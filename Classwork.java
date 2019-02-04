@@ -24,5 +24,7 @@ public class Classwork{
     System.out.println(makeAllWords(1,26));
     System.out.println(makeAllWords(2,26));
     System.out.println(makeAllWords(4,2));
+    System.out.println(makeAllWords(2,6));
+    System.out.println(makeAllWords(4,3));
   }
 }
