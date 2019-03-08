@@ -13,12 +13,36 @@ public class Classwork{
 public static int partition ( int [] data, int start, int end){
   int index = (int)(Math.random() * (end - start + 1)) + start;
   int pivot = data[index];
-  
-  return index;
+  data[index] = data[0];
+  data[0] = pivot;
+  start++;
+  while (start != end){
+    if (data[start] > pivot){
+      int temp = data[start];
+      data[start] = data[end];
+      data[end] = temp;
+      end--;
+    }
+    else start++;
+  }
+  if (data[start] < pivot){
+    data[0] = data[start];
+    data[start] = pivot;
+    //System.out.println(Arrays.toString(data));
+    //System.out.println("pivot:" + pivot);
+    return start;
+  }
+  else{
+    data[0] = data[start - 1];
+    data[start - 1] = pivot;
+    //System.out.println(Arrays.toString(data));
+    //System.out.println("pivot:" + pivot);
+    return start - 1;
+  }
 }
 
 public static void main(String[] args) {
-  System.out.println(partition(new int[] {4, 5, 6, 3, 5, 6}, 1, 5));
+  System.out.println(partition(new int[] {4, 5, 6, 3, 7, 2}, 0, 5));
 }
 
   /*public static List<String> makeAllWords(int k, int maxLetter){
